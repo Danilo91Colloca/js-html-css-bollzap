@@ -49,7 +49,7 @@
 .sidebar-popup-box {
   width: 100%;
   height: 100px;
-  background-color: red; /* TEMP: da eliminare */
+  background-color: rgb(123, 218, 250); /* like color of bell-slash */
 }
 .sidebar-search-box {
   width: 100%;
@@ -122,5 +122,27 @@ div[class$="iconBoxRight"] > i{
 .access-data {
   color: rgb(165, 165, 165);
   font-size: 15px;
+  cursor: pointer;
+}
+
+.sidebar-popup-box {
+  align-items: center;
+  padding-left: 15px;
+}
+.logo-popup-container {
+  margin-right: 15px;
+
+}
+.logo-popup-container i {
+  font-size: 28px;
+  color: rgb(123, 218, 250); /* like background-color of popup*/
+  border-radius: 50%;
+  padding: 15px;
+  background-color: rgb(255, 255, 255);
+}
+.sidebar-popup-box .underline-textLink {
+  font-size: 15px;
+  color: rgb(91, 157, 159); /* like background-color of popup*/
+  text-decoration: underline;
   cursor: pointer;
 }
