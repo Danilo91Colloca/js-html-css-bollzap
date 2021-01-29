@@ -5,6 +5,9 @@
   padding: 0px;
 }
 
+.flex {
+  display: flex;
+}
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> STYLE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
@@ -26,6 +29,7 @@
 }
 
 .sidebar-box {
+  display: inline-block;
   width: 530px;
   height: 100%;
   background-color: lightblue; /* TEMP: da eliminare */
@@ -50,6 +54,31 @@
 }
 .sidebar-msgContact-box {
   width: 100%;
-  height:100%;
+  height:calc(100% - 245px);
   background-color: yellow; /* TEMP: da eliminare */
+}
+
+.main-box {
+  display: inline-block;
+  width: calc(100% - 530px);
+  height: 100%;
+  background-color: rgba(250, 000, 000, 0.5); /* TEMP: da eliminare */
+}
+
+.main-top-box {
+  width: 100%;
+  height: 85px;
+  background-color: pink;
+}
+
+.main-central-box {
+  width: 100%;
+  height:calc(100% - 170px);
+  background-color: brown; /* TEMP: da eliminare */
+}
+
+.main-bottom-box {
+  width: 100%;
+  height: 85px;
+  background-color: green; /* TEMP: da eliminare */
 }
