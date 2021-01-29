@@ -14,6 +14,7 @@ ul {
   display: flex;
 }
 
+
 /*>>>>>>>>>>>>>>>>>>>>> LAYOUT STRUCUTRE <<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 /*ALERT: il tag dom-wrapper contiene tutta la pagina*/
@@ -191,6 +192,31 @@ div[class^="mainBottomIcon"] > i {
   height: 100px;
   align-items: center;
   margin-bottom: 1px;
+}
+/*++++++++main central msg balloon++++++*/
+.row-user {
+  justify-content: flex-end;
+  padding: 15px;
+}
+.row-contact {
+  padding: 15px;
+}
+
+.msgBalloon-user,
+.msgBalloon-contact {
+  border: 1px solid black;
+  right: 0px;
+  max-width: 280px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 2px 3px 4px rgb(91, 114, 134);
+}
+.msgBalloon-user {
+  background-color: rgb(183, 209, 168)
+}
+.msgBalloon-contact {
+  background-color: rgb(214, 214, 214)
 }
 /*++++++++main bottom++++++*/
 
