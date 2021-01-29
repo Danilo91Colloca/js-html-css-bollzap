@@ -22,5 +22,34 @@
   margin: 0 auto;
   width: 80%;
   height: 100%;
-  background-color: grey;
+  background-color: grey; /* TEMP: da eliminare */
+}
+
+.sidebar-box {
+  width: 530px;
+  height: 100%;
+  background-color: lightblue; /* TEMP: da eliminare */
+}
+
+.sidebar-top {
+  width: 100%;
+  height: 85px;
+  background-color: purple; /* TEMP: da eliminare */
+
+}
+
+.sidebar-popup-box {
+  width: 100%;
+  height: 100px;
+  background-color: red; /* TEMP: da eliminare */
+}
+.sidebar-search-box {
+  width: 100%;
+  height: 60px;
+  background-color: blue; /* TEMP: da eliminare */
+}
+.sidebar-msgContact-box {
+  width: 100%;
+  height:100%;
+  background-color: yellow; /* TEMP: da eliminare */
 }
