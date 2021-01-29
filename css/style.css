@@ -7,3 +7,12 @@
 
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> STYLE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+#dom-wrapper {
+  background-image: linear-gradient(rgb(0, 150, 136),rgb(0, 150, 136));
+  background-repeat: no-repeat;
+  background-size: 100% 15%;
+  background-color: rgb(217, 219, 215);
+  width: 100vw;
+  height: 100vh;
+}
