@@ -204,13 +204,13 @@ div[class^="mainBottomIcon"] > i {
 
 .msgBalloon-user,
 .msgBalloon-contact {
-  border: 1px solid black;
   right: 0px;
   max-width: 280px;
   border-radius: 10px;
   margin-bottom: 20px;
   padding: 10px;
   box-shadow: 2px 3px 4px rgb(91, 114, 134);
+  cursor: pointer;
 }
 .msgBalloon-user {
   background-color: rgb(183, 209, 168)
