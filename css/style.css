@@ -11,9 +11,8 @@ ul {
 .flex {
   display: flex;
 }
-
 /*>>>>>>>>>>>>>>>>>>>>> LAYOUT STRUCUTRE <<<<<<<<<<<<<<<<<<<<<<<<<*/
-/*ALERT: il tag dom-wrapper contiene tutta la pagina*/
+/*ALERT: l'attributo id dom-wrapper contiene tutta la pagina*/
 #dom-wrapper {
   background-image: linear-gradient(rgb(0, 150, 136),rgb(0, 150, 136));
   background-repeat: no-repeat;
@@ -23,7 +22,7 @@ ul {
   height: 100vh;
   padding: 20px 0px;
 }
-/*ALERT: il tag page-wrapper contiene tutto il layout della pagina*/
+/*ALERT: l'attributo class page-wrapper contiene tutto il layout della pagina*/
 .page-wrapper {
   margin: 0 auto;
   width: 80%;
@@ -84,10 +83,8 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
-
 /*>>>>>>>>>>>>>>>>>>>>>>>>> STYLE CONTENT <<<<<<<<<<<<<<<<<<<<<<<<<*/
 /*+++++sidebar++++*/
-
 .user-box-data {
   display: flex;
   align-items: center;
@@ -176,9 +173,7 @@ div[class^="mainBottomIcon"] > i {
   margin-bottom: 1px;
   cursor: pointer;
 }
-
 /*++++++++main central msg balloon++++++*/
-
 .row-user {
   justify-content: flex-end;
   padding: 15px ;
@@ -197,43 +192,36 @@ div[class^="mainBottomIcon"] > i {
   cursor: pointer;
   position:relative;
 }
-.msgBalloon-user {
+.msgBalloon-user {    /*colore background msgBalloon user*/
   background-color: rgb(183, 209, 168);
 }
-/*arrow right of balloon*/
-.msgBalloon-user::after {
-  content: "";
-  width: 0px;
-  height: 0px;
-  border-top: 25px solid rgb(183, 209, 168);
-  border-right: 25px solid transparent;
-  border-bottom: 20px solid transparent;
-  position: absolute;
-  border-top-right-radius: 5px;
-  top: 0px;
-  right: 0px;
-  transform: translateX(60%);
-}
-.msgBalloon-contact {
+.msgBalloon-contact {   /*colore background msgBalloon contact*/
   background-color: rgb(255, 255, 255);
 }
-/*arrow left of balloon*/
-.msgBalloon-contact::before {
+.msgBalloon-user::after,   /*arrow of balloon general L-R*/
+.msgBalloon-contact::before  {
   content: "";
   width: 0px;
   height: 0px;
-  border-top: 25px solid rgb(255, 255, 255);
-  border-left: 25px solid transparent;
   border-bottom: 20px solid transparent;
   position: absolute;
-  border-top-left-radius: 5px;
   top: 0px;
-  left: 0px;
-  transform: translateX(-60%);
 }
-
+.msgBalloon-contact::before {     /*arrow left of balloon*/
+  border-top: 25px solid rgb(255, 255, 255);
+  border-left: 25px solid transparent;
+  border-top-left-radius: 5px;
+  transform: translateX(-60%);
+  left: 0px;
+}
+.msgBalloon-user::after {        /*arrow right of balloon*/
+  border-top: 25px solid rgb(183, 209, 168);
+  border-right: 25px solid transparent;
+  border-top-right-radius: 5px;
+  transform: translateX(60%);
+  right: 0px;
+}
 /*++++++++main bottom++++++*/
-
 div[class^="mainBottomIcon"] {
   display: flex;
   align-items: center;
