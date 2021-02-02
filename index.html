@@ -57,7 +57,7 @@
 
             <div class="sidebar-msgContact-box ">
               <ul>
-                <li class="flex" v-for="(element, index) in contacts">
+                <li class="flex" v-for="(element, index) in contacts"  @click="extractContact(index)">
                   <div class="user-box-data ">
                     <img :src="'img/avatar' + element.avatar + '.jpg'" alt="">
                     <div class="user-data">
@@ -84,15 +84,15 @@
               <!-- contact chat box  -->
               <div class="user-box-data left">
 
-                <img src="img/avatar_1.jpg" alt="">
-                <div class="user-data">
-                  <div class="name-data">
+                <img :src="'img/avatar' + contactObject.avatar + '.jpg'" alt="">
+                <div class="user-data"  >
+                  <div class="name-data" >
                     <!-- under this not definitive line-->
-                    <span>{{contacts[0].name}}</span>
+                    <span>{{contactObject.name}}</span>
                   </div>
                   <div class="access-data">
                     <!-- under this not definitive line-->
-                    <span>Ultimo accesso alle: {{contacts[0].messages[2].date}}</span>
+                    <span>Ultimo accesso alle: </span>
                   </div>
                 </div>
               </div>
@@ -110,7 +110,7 @@
             <div class="main-central-box">
               <ul>
                 <li class="row-user flex ">
-                  <div class="msgBalloon-user ">
+                  <div class="msgBalloon-user">
                     TEST CLASS USER
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     lorem

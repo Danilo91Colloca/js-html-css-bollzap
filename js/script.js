@@ -85,12 +85,16 @@ new Vue({
     			}
     		],
     	}
-    ]
+    ],
+    contactObject : {name: 'Michele', avatar: '_1'}
   },
   methods : {
-
-
+    extractContact : function(newIndex) { //estraggo oggetto da contact
+      return this.contactObject = this.contacts[newIndex];
+    }
   }
 
 });
+
+
 Vue.config.devtools = true;
