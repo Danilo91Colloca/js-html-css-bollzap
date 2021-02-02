@@ -90,16 +90,6 @@ new Vue({
 
     typingText : '',
 
-    msgUser : {
-      date: 'XX/XX/XX',
-      text: '',
-      status: 'sent'
-    },
-    msgResponse : {
-      date: 'XX/XX/XX',
-      text: 'ok',
-      status: 'received'
-    }
   },
   methods : {
     extractContact : function(newIndex) { //popola dinamicamente "dynamicIndex"
@@ -114,17 +104,25 @@ new Vue({
 
     sendMsg : function(newIndex){
       if (this.typingText !== "") {
-        (this.msgUser.text = this.typingText) && (this.typingText = "")
+        const msgArray = this.contacts[newIndex].messages;
+        msgArray.push({
+          text: this.typingText,
+          date: 'XX/XX/XX/',
+          status: 'sent'
+        });
+        this.typingText = '';
+        // set time out per la risposta
+
+        setTimeout(function(){
+          msgArray.push({
+            text: 'Ok',
+            date: 'XX/XX/XX/',
+            status: 'received'
+          });
+        }, 1500)
 
       }
-      const msgArray = this.contacts[newIndex].messages;
-      msgArray.push(this.msgUser);
 
-      setTimeout(function(newIndex){
-        const msgArray = this.contacts[newIndex].messages;
-        msgArray.push(this.msgResponse)
-
-      }, 1000)
     }
   }
 
