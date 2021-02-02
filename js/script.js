@@ -97,32 +97,38 @@ new Vue({
     },
     contactLastAccess : function(index) { //ritorna l'ultima data dei msg dinamicamente
       const msgArray = this.contacts[index].messages;
-      const masArrayLength = msgArray.length - 1;
-      const msgLastDate = msgArray[masArrayLength].date
+      const msgArrayLength = msgArray.length - 1;
+      const msgLastDate = msgArray[msgArrayLength].date
       return msgLastDate
     },
 
     sendMsg : function(newIndex){
+      let actualDateHours = new Date();
+      let d= actualDateHours.getDay();
+      let m = actualDateHours.getMonth() + 1;
+      let y = actualDateHours.getFullYear();
+      let h = actualDateHours.getHours();
+      let min = actualDateHours.getMinutes();
+      let s = actualDateHours.getSeconds();
+
       if (this.typingText !== "") {
         const msgArray = this.contacts[newIndex].messages;
         msgArray.push({
           text: this.typingText,
-          date: 'XX/XX/XX/',
+          date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
           status: 'sent'
         });
         this.typingText = '';
         // set time out per la risposta
-
         setTimeout(function(){
           msgArray.push({
             text: 'Ok',
-            date: 'XX/XX/XX/',
+            date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
             status: 'received'
           });
-        }, 1500)
+        }, 2000)
 
-      }
-
+      };
     }
   }
 
