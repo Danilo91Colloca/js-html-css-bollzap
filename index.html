@@ -67,7 +67,7 @@
                       </div>
                       <div class="access-data">
                         <!-- under this not definitive line -->
-                        <span>{{element.messages[index, 0].text}}</span>
+                        <span></span>
                       </div>
                     </div>
                   </div>
@@ -92,7 +92,7 @@
                   </div>
                   <div class="access-data">
                     <!-- under this not definitive line-->
-                    <span>Ultimo accesso alle: </span>
+                    <span>Ultimo accesso alle: {{contactLastAccess(dynamicIndex)}}</span>
                   </div>
                 </div>
               </div>
@@ -119,7 +119,7 @@
                 <i class="far fa-smile"></i>
               </div>
               <div class="mainBottomInput-container">
-                <input type="text" name="" value="" placeholder="Scrivi un messaggio">
+                <input type="text" name="" value="" placeholder="Scrivi un messaggio" v-model="typingText" @keyup.enter="sendMsg(dynamicIndex)">
               </div>
               <div class="mainBottomIcon-container">
                 <i class="fas fa-microphone"></i>

@@ -86,12 +86,45 @@ new Vue({
     		],
     	}
     ],
+    dynamicIndex : 0,
 
-    dynamicIndex : 0
+    typingText : '',
+
+    msgUser : {
+      date: 'XX/XX/XX',
+      text: '',
+      status: 'sent'
+    },
+    msgResponse : {
+      date: 'XX/XX/XX',
+      text: 'ok',
+      status: 'received'
+    }
   },
   methods : {
-    extractContact : function(newIndex) { 
+    extractContact : function(newIndex) { //popola dinamicamente "dynamicIndex"
       return this.dynamicIndex = newIndex;
+    },
+    contactLastAccess : function(index) { //ritorna l'ultima data dei msg dinamicamente
+      const msgArray = this.contacts[index].messages;
+      const masArrayLength = msgArray.length - 1;
+      const msgLastDate = msgArray[masArrayLength].date
+      return msgLastDate
+    },
+
+    sendMsg : function(newIndex){
+      if (this.typingText !== "") {
+        (this.msgUser.text = this.typingText) && (this.typingText = "")
+
+      }
+      const msgArray = this.contacts[newIndex].messages;
+      msgArray.push(this.msgUser);
+
+      setTimeout(function(newIndex){
+        const msgArray = this.contacts[newIndex].messages;
+        msgArray.push(this.msgResponse)
+
+      }, 1000)
     }
   }
 
