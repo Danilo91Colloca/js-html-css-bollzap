@@ -11,6 +11,12 @@ ul {
 .flex {
   display: flex;
 }
+
+.clearfix {
+  content: '';
+  clear: both;
+  display: table;
+}
 /*>>>>>>>>>>>>>>>>>>>>> LAYOUT STRUCUTRE <<<<<<<<<<<<<<<<<<<<<<<<<*/
 /*ALERT: l'attributo id dom-wrapper contiene tutta la pagina*/
 #dom-wrapper {
@@ -174,15 +180,8 @@ div[class^="mainBottomIcon"] > i {
   cursor: pointer;
 }
 /*++++++++main central msg balloon++++++*/
-.row-user {
-  justify-content: flex-end;
-  padding: 15px ;
-}
-.row-contact {
-  padding: 15px ;
-}
-.msgBalloon-user,
-.msgBalloon-contact {
+
+.msgBalloon {
   right: 0px;
   max-width: 280px;
   border-radius: 10px;
@@ -192,14 +191,16 @@ div[class^="mainBottomIcon"] > i {
   cursor: pointer;
   position:relative;
 }
-.msgBalloon-user {    /*colore background msgBalloon user*/
+.sent {    /*colore background msgBalloon user*/
   background-color: rgb(183, 209, 168);
+  float: right;
 }
-.msgBalloon-contact {   /*colore background msgBalloon contact*/
+.received {   /*colore background msgBalloon contact*/
   background-color: rgb(255, 255, 255);
+  float: left;
 }
-.msgBalloon-user::after,   /*arrow of balloon general L-R*/
-.msgBalloon-contact::before  {
+.msgBalloon.sent::after,   /*arrow of balloon general L-R*/
+.msgBalloon.received::before  {
   content: "";
   width: 0px;
   height: 0px;
@@ -207,14 +208,14 @@ div[class^="mainBottomIcon"] > i {
   position: absolute;
   top: 0px;
 }
-.msgBalloon-contact::before {     /*arrow left of balloon*/
+.msgBalloon.received::before {     /*arrow left of balloon*/
   border-top: 25px solid rgb(255, 255, 255);
   border-left: 25px solid transparent;
   border-top-left-radius: 5px;
   transform: translateX(-60%);
   left: 0px;
 }
-.msgBalloon-user::after {        /*arrow right of balloon*/
+.msgBalloon.sent::after {        /*arrow right of balloon*/
   border-top: 25px solid rgb(183, 209, 168);
   border-right: 25px solid transparent;
   border-top-right-radius: 5px;

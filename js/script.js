@@ -86,11 +86,12 @@ new Vue({
     		],
     	}
     ],
-    contactObject : {name: 'Michele', avatar: '_1'}
+
+    dynamicIndex : 0
   },
   methods : {
-    extractContact : function(newIndex) { //estraggo oggetto da contact
-      return this.contactObject = this.contacts[newIndex];
+    extractContact : function(newIndex) { 
+      return this.dynamicIndex = newIndex;
     }
   }
 
