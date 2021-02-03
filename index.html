@@ -112,8 +112,18 @@
             <div class="main-central-box" >
               <div v-for="(message, index) in contacts[dynamicIndex].messages" :class="'msgBalloon clearfix ' + message.status">
                 {{message.text}}
+                <div class="button-msgMenu" @click="msgMenuVisible(index, dynamicIndex)">
+                  <i class="fas fa-chevron-down"></i>
+                  <div :class="'msg-menu ' + classActiveMenu">
+                    <ul>
+                      <li>Message Info</li>
+                      <li>Delete Message</li>
+                    </ul>
+                  </div>
+                </div>
                 <span class="msg-hours">{{onlyHours(index, dynamicIndex)}}</span>
               </div>
+
             </div>
             <!-- /main-CENTRAL -->
             <!-- main-BOTTOM -->

@@ -80,7 +80,7 @@ ul {
   height:calc(100% - 170px);
   background-image: url("../img/mine.jpg");
   overflow-y: auto;
-  padding: 0px 80px; /*padding chat msgBalloon*/
+  padding: 15px 80px; /*padding chat msgBalloon*/
 }
 .main-bottom-box {
   width: 100%;
@@ -214,6 +214,10 @@ div[class^="mainBottomIcon"] > i {
   position: absolute;
   top: 0px;
 }
+.text-inBalloon {
+  position: relative;
+}
+
 .msgBalloon.received::before {     /*arrow left of balloon*/
   border-top: 25px solid rgb(255, 255, 255);
   border-left: 25px solid transparent;
@@ -221,6 +225,7 @@ div[class^="mainBottomIcon"] > i {
   transform: translateX(-60%);
   left: 0px;
 }
+
 .msgBalloon.sent::after {        /*arrow right of balloon*/
   border-top: 25px solid rgb(183, 209, 168);
   border-right: 25px solid transparent;
@@ -238,11 +243,48 @@ div[class^="mainBottomIcon"] > i {
   padding: 2px;
 }
 .msg-hours::after {
-  font-weight: 600;
+  font-weight: 700;
   content: "\f560";
   display: inline-block;
   font-family: "Font Awesome 5 Free";
-  margin-left: 3px;
+  margin-left: 5px;
+}
+/*finestra per cancellare i messaggi*/
+.button-msg {
+  position: relative;
+}
+.button-msgMenu > i{ /*freccia menu msg*/
+  position: absolute;
+  right: 5px;
+  top:0;
+  z-index: 100;
+  color: rgb(165, 165, 165);
+  display: none;
+}
+.msgBalloon:hover .button-msgMenu > i {
+  display: block;
+}
+.msg-menu {
+  width: 150px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 3px 4px rgb(91, 114, 134);
+  position: absolute;
+  z-index: 200;
+  right: 5px;
+  top: 15px;
+  display: none;
+}
+.msg-menu li {
+  padding: 15px;
+  line-height: 30px;
+  color: rgb(145, 145, 145);
+}
+.msg-menu li:hover {
+  background-color: rgb(218,218,218)
+}
+
+.activeMenu {
+  display: block;
 }
 /*++++++++main bottom++++++*/
 div[class^="mainBottomIcon"] {

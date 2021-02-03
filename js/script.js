@@ -117,7 +117,8 @@ new Vue({
     ],
     dynamicIndex : 0,
     typingText : '',
-    search : ''
+    search : '',
+    classActiveMenu:'no-active'
   },
   methods : {
     extractContact : function(newIndex) { //popola dinamicamente "dynamicIndex"
@@ -200,6 +201,18 @@ new Vue({
          item.visible = false
        }
       });
+    },
+    msgMenuVisible : function(iMsg, indexContact){
+      const messages = this.contacts[indexContact].messages;
+      const msg = messages.length - 1;
+
+      if (msg === iMsg) {
+        this.classActiveMenu = 'activeMenu';
+      }
+      if (msg !== iMsg) {
+        this.classActiveMenu = 'no-active';
+      }
+
     }
   }
 });
