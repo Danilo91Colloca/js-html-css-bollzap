@@ -151,8 +151,23 @@ new Vue({
       }
     },
 
-    isSearch : function() {
-     
+    // isVisibleFalse : function() {
+    //  const array = this.contacts
+    //  array.filter((element)=> {
+    //   return element.visible = false
+    //
+    //   element.name
+    //   });
+    // },
+    isSearch : function(){
+      let that= this;
+      this.contacts.map((element) => {
+        if (!element.name.startsWith(that.search)){
+          element.visible === false
+        }
+      })
+
+    }
   }
 });
 
