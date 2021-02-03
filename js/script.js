@@ -160,12 +160,21 @@ new Vue({
     //   });
     // },
     isSearch : function(){
-      let that= this;
-      this.contacts.map((element) => {
-        if (!element.name.startsWith(that.search)){
-          element.visible === false
-        }
-      })
+      let typingName= this.search.toLowerCase();
+      this.contacts.forEach((item, i) => {
+       let name = item.name.toLowerCase();
+
+       if (name.startsWith(typingName)) {
+         item.visible = true
+
+       } else {
+         item.visible = false 
+       }
+
+
+
+      });
+
 
     }
   }
