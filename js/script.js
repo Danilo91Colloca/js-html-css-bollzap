@@ -118,17 +118,41 @@ new Vue({
           date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
           status: 'sent'
         });
-        this.typingText = '';
         // set time out per la risposta
-        setTimeout(function(){
-          msgArray.push({
-            text: 'Ok',
-            date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
-            status: 'received'
-          });
-        }, 2000)
+        if (this.typingText === "ciao") {
+          setTimeout(function(){
+            msgArray.push({
+              text: 'che vuoi!',
+              date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
+              status: 'received'
+            });
+          }, 1000)
 
-      };
+        }else if (this.typingText === "come stai?" || this.typingText === "come stai") {
+          setTimeout(function(){
+            msgArray.push({
+              text: 'bene!',
+              date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
+              status: 'received'
+            });
+          }, 1000)
+
+        }else {
+          setTimeout(function(){
+            msgArray.push({
+              text: 'ok!',
+              date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
+              status: 'received'
+            });
+          }, 1000)
+        }
+
+        this.typingText = '';
+
+      }
+
+
+
     }
   }
 
