@@ -51,19 +51,19 @@
             <div class="sidebar-search-box flex">
               <div class="input-container flex">
                 <i class="fas fa-search"></i>
-                <input type="text" name="" value="" placeholder="Cerca o inizia nuova chat">
+                <input type="text" name="" value="" placeholder="Cerca o inizia nuova chat" v-model="search">
               </div>
             </div>
 
             <div class="sidebar-msgContact-box ">
               <ul>
-                <li class="flex" v-for="(element, index) in contacts"  @click="extractContact(index)">
+                <li class="flex" v-for="(element, index) in contacts"  @click="extractContact(index)" v-if="element.visible === true">
                   <div class="user-box-data ">
                     <img :src="'img/avatar' + element.avatar + '.jpg'" alt="">
                     <div class="user-data">
                       <div class="name-data">
-                        <!-- under this not definitive line -->
                         <span>{{element.name}}</span>
+
                       </div>
                       <div class="access-data">
                         <!-- under this not definitive line -->
@@ -88,7 +88,7 @@
                 <div class="user-data"  >
                   <div class="name-data" >
                     <!-- under this not definitive line-->
-                    <span>{{contacts[dynamicIndex].name}}</span>
+                    <span >{{contacts[dynamicIndex].name}}</span>
                   </div>
                   <div class="access-data">
                     <!-- under this not definitive line-->

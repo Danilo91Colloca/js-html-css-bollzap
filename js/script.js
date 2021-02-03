@@ -89,6 +89,7 @@ new Vue({
     dynamicIndex : 0,
 
     typingText : '',
+    search : ''
 
   },
   methods : {
@@ -101,8 +102,7 @@ new Vue({
       const msgLastDate = msgArray[msgArrayLength].date
       return msgLastDate
     },
-
-    sendMsg : function(newIndex){
+    currentDate : function(){
       let actualDateHours = new Date();
       let d= actualDateHours.getDay();
       let m = actualDateHours.getMonth() + 1;
@@ -110,52 +110,50 @@ new Vue({
       let h = actualDateHours.getHours();
       let min = actualDateHours.getMinutes();
       let s = actualDateHours.getSeconds();
-
+      return d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s
+    },
+    sendMsg : function(newIndex){
       if (this.typingText !== "") {
         const msgArray = this.contacts[newIndex].messages;
         msgArray.push({
           text: this.typingText,
-          date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
+          date: this.currentDate(),
           status: 'sent'
         });
         // set time out per la risposta
+        let that= this;
         if (this.typingText === "ciao") {
           setTimeout(function(){
             msgArray.push({
-              text: 'che vuoi!',
-              date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
+              text: 'ciao!',
+              date: that.currentDate(),
               status: 'received'
             });
           }, 1000)
-
         }else if (this.typingText === "come stai?" || this.typingText === "come stai") {
           setTimeout(function(){
             msgArray.push({
               text: 'bene!',
-              date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
+              date: that.currentDate(),
               status: 'received'
             });
           }, 1000)
-
         }else {
           setTimeout(function(){
             msgArray.push({
               text: 'ok!',
-              date: d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s,
+              date: that.currentDate(),
               status: 'received'
             });
           }, 1000)
         }
-
         this.typingText = '';
-
       }
+    },
 
-
-
-    }
+    isSearch : function() {
+     
   }
-
 });
 
 
