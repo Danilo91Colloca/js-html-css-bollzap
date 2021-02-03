@@ -59,7 +59,7 @@
 
             <div class="sidebar-msgContact-box ">
               <ul>
-                <li class="flex" v-for="(element, index) in contacts"  @click="extractContact(index)" v-if="element.visible === true">
+                <li :class="'flex contact-item ' + changeColorSelected(index)" v-for="(element, index) in contacts"  @click="extractContact(index)" v-if="element.visible === true">
                   <div class="user-box-data ">
                     <img :src="'img/avatar' + element.avatar + '.jpg'" alt="">
                     <div class="user-data">

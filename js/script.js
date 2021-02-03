@@ -118,11 +118,15 @@ new Vue({
     dynamicIndex : 0,
     typingText : '',
     search : ''
-
   },
   methods : {
     extractContact : function(newIndex) { //popola dinamicamente "dynamicIndex"
       return this.dynamicIndex = newIndex;
+    },
+    changeColorSelected : function(ind){
+      if (this.dynamicIndex === ind){
+        return classSelectedContact = 'selected-contact'
+      }
     },
     currentDate : function(){ //funzione che genera la data corrente con day.js
       let data = dayjs().format('DD/MM/YYYY ' + 'HH:mm:ss')
