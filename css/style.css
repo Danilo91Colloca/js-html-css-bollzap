@@ -193,7 +193,7 @@ div[class^="mainBottomIcon"] > i {
   max-width: 280px;
   border-radius: 10px;
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 10px 20px 20px 10px;
   box-shadow: 2px 3px 4px rgb(91, 114, 134);
   cursor: pointer;
   position:relative;
@@ -231,10 +231,19 @@ div[class^="mainBottomIcon"] > i {
 }
 
 .msg-hours {
-  font-size: 12px;
+  font-size: 10px;
   color: rgb(165, 165, 165);
-  background-color: red;
-  
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  padding: 2px;
+}
+.msg-hours::after {
+  font-weight: 600;
+  content: "\f560";
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  margin-left: 3px;
 }
 /*++++++++main bottom++++++*/
 div[class^="mainBottomIcon"] {
