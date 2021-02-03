@@ -125,7 +125,7 @@ new Vue({
       return this.dynamicIndex = newIndex;
     },
     currentDate : function(){ //funzione che genera la data corrente con day.js
-      let data = dayjs().format('DD/MM/YYYY ' + 'HH:mm:ssd')
+      let data = dayjs().format('DD/MM/YYYY ' + 'HH:mm:ss')
       return data
     },
     contactLastAccess : function(index) { //ritorna l'ultima data dei msg dinamicamente e solo
@@ -141,8 +141,12 @@ new Vue({
     },
     lastMsgPreview : function(i){
       const messages = this.contacts[i].messages;
-      const msgLength = messages.length - 1
+      const msgLength = messages.length - 1;
       return messages[msgLength].text
+    },
+    onlyHours : function(iMsg, iArray){
+      const messages = this.contacts[iArray].messages[iMsg];
+      return messages.date.slice(11, -3)
     },
     sendMsg : function(newIndex, insertText){         //inserimento del messaggio dell'utente
       if (insertText !== "") {

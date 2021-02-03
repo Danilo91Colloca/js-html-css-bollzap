@@ -229,6 +229,13 @@ div[class^="mainBottomIcon"] > i {
   transform: translateX(60%);
   right: 0px;
 }
+
+.msg-hours {
+  font-size: 12px;
+  color: rgb(165, 165, 165);
+  background-color: red;
+  
+}
 /*++++++++main bottom++++++*/
 div[class^="mainBottomIcon"] {
   display: flex;

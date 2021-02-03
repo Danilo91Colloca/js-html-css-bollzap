@@ -108,8 +108,9 @@
             <!-- /main-TOP -->
             <!-- main-CENTRAL -->
             <div class="main-central-box" >
-              <div v-for="message in contacts[dynamicIndex].messages" :class="'msgBalloon clearfix ' + message.status">
+              <div v-for="(message, index) in contacts[dynamicIndex].messages" :class="'msgBalloon clearfix ' + message.status">
                 {{message.text}}
+                <span class="msg-hours">{{onlyHours(index, dynamicIndex)}}</span>
               </div>
             </div>
             <!-- /main-CENTRAL -->
