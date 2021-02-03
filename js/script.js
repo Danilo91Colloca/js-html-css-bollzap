@@ -130,29 +130,8 @@ new Vue({
       const msgLastDate = msgArray[msgArrayLength].date
       return msgLastDate
     },
-    // contactLastAccess : function(index) {
-    //    const msgArray = this.contacts[index].messages;
-    //    msgArray.forEach((item, i) => {
-    //      if(item.status === "received") {
-    //        return item.date
-    //      }
-    //    });
-    //
-    //
-    //
-    // },
-    // currentDate : function(){               //funzione che genera la data corrente
-    //   let actualDateHours = new Date();
-    //   let d= actualDateHours.getDay();
-    //   let m = actualDateHours.getMonth() + 1;
-    //   let y = actualDateHours.getFullYear();
-    //   let h = actualDateHours.getHours();
-    //   let min = actualDateHours.getMinutes();
-    //   let s = actualDateHours.getSeconds();
-    //   return d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s
-    // },
-    currentDate : function(){               //funzione che genera la data corrente
-      let data = dayjs().format('DD/MM/YYYY ' + 'HH:mm:ss')
+    currentDate : function(){ //funzione che genera la data corrente con day.js
+      let data = dayjs().format('DD/MM/YYYY ' + 'HH:mm:ssd')
       return data
     },
     sendMsg : function(newIndex, insertText){         //inserimento del messaggio dell'utente
