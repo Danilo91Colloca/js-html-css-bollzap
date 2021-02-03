@@ -82,12 +82,40 @@ new Vue({
     				date: '10/01/2020 15:50:00',
     				text: 'Si, ma preferirei andare al cinema',
     				status: 'received'
-    			}
+    			},
+
+    		],
+    	},
+      {
+    		name: 'Mario',
+    		avatar: '_1',
+    		visible: true,
+    		messages: [
+    			{
+    				date: '10/01/2020 15:30:55',
+    				text: 'Ci facciamo un giretto?',
+    				status: 'sent'
+    			},
+    			{
+    				date: '10/01/2020 15:50:00',
+    				text: 'Si dai, Duomo?',
+    				status: 'received'
+    			},
+          {
+    				date: '10/01/2020 15:51:55',
+    				text: 'va bene ci troviamo in metro!',
+    				status: 'sent'
+    			},
+          {
+    				date: '10/01/2020 15:53:00',
+    				text: 'perfetto, a dopo',
+    				status: 'received'
+    			},
+
     		],
     	}
     ],
     dynamicIndex : 0,
-
     typingText : '',
     search : ''
 
@@ -102,27 +130,41 @@ new Vue({
       const msgLastDate = msgArray[msgArrayLength].date
       return msgLastDate
     },
-    currentDate : function(){
-      let actualDateHours = new Date();
-      let d= actualDateHours.getDay();
-      let m = actualDateHours.getMonth() + 1;
-      let y = actualDateHours.getFullYear();
-      let h = actualDateHours.getHours();
-      let min = actualDateHours.getMinutes();
-      let s = actualDateHours.getSeconds();
-      return d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s
+    // contactLastAccess : function(index) {
+    //    const msgArray = this.contacts[index].messages;
+    //    msgArray.forEach((item, i) => {
+    //      if(item.status === "received") {
+    //        return item.date
+    //      }
+    //    });
+    //
+    //
+    //
+    // },
+    // currentDate : function(){               //funzione che genera la data corrente
+    //   let actualDateHours = new Date();
+    //   let d= actualDateHours.getDay();
+    //   let m = actualDateHours.getMonth() + 1;
+    //   let y = actualDateHours.getFullYear();
+    //   let h = actualDateHours.getHours();
+    //   let min = actualDateHours.getMinutes();
+    //   let s = actualDateHours.getSeconds();
+    //   return d +' / '+ m +' / ' + y + '  '+ h + ':' + m + ':' + s
+    // },
+    currentDate : function(){               //funzione che genera la data corrente
+      let data = dayjs().format('DD/MM/YYYY ' + 'HH:mm:ss')
+      return data
     },
-    sendMsg : function(newIndex){
-      if (this.typingText !== "") {
+    sendMsg : function(newIndex, insertText){         //inserimento del messaggio dell'utente
+      if (insertText !== "") {
         const msgArray = this.contacts[newIndex].messages;
         msgArray.push({
-          text: this.typingText,
+          text: insertText,
           date: this.currentDate(),
           status: 'sent'
         });
-        // set time out per la risposta
-        let that= this;
-        if (this.typingText === "ciao") {
+        let that= this;                            // set time out per la risposta
+        if (insertText === "ciao") {
           setTimeout(function(){
             msgArray.push({
               text: 'ciao!',
@@ -130,7 +172,7 @@ new Vue({
               status: 'received'
             });
           }, 1000)
-        }else if (this.typingText === "come stai?" || this.typingText === "come stai") {
+        }else if (insertText === "come stai?" || insertText === "come stai") {
           setTimeout(function(){
             msgArray.push({
               text: 'bene!',
@@ -147,35 +189,20 @@ new Vue({
             });
           }, 1000)
         }
-        this.typingText = '';
+        this.typingText = ''; //resetta typingText
       }
     },
-
-    // isVisibleFalse : function() {
-    //  const array = this.contacts
-    //  array.filter((element)=> {
-    //   return element.visible = false
-    //
-    //   element.name
-    //   });
-    // },
-    isSearch : function(){
-      let typingName= this.search.toLowerCase();
-      this.contacts.forEach((item, i) => {
+    isSearch : function(toSearch, array){   //funzione per la ricerca del nome
+      let typingName= toSearch.toLowerCase();
+      array.forEach((item, i) => {
        let name = item.name.toLowerCase();
-
        if (name.startsWith(typingName)) {
          item.visible = true
 
        } else {
-         item.visible = false 
+         item.visible = false
        }
-
-
-
       });
-
-
     }
   }
 });

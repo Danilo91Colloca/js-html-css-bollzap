@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>BOOLZAP</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   </head>
   <body>
     <!-- VUE.JS OPERATIONAL AREA NOT DELETE-->
@@ -51,7 +52,7 @@
             <div class="sidebar-search-box flex">
               <div class="input-container flex">
                 <i class="fas fa-search"></i>
-                <input type="text" name="" value="" placeholder="Cerca o inizia nuova chat" v-model="search" @keyup.self="isSearch()">
+                <input type="text" name="" value="" placeholder="Cerca o inizia nuova chat" v-model="search" @keyup="isSearch(search, contacts)">
               </div>
             </div>
 
@@ -119,7 +120,7 @@
                 <i class="far fa-smile"></i>
               </div>
               <div class="mainBottomInput-container">
-                <input type="text" name="" value="" placeholder="Scrivi un messaggio" v-model="typingText" @keyup.enter="sendMsg(dynamicIndex)">
+                <input type="text" name="" value="" placeholder="Scrivi un messaggio" v-model="typingText" @keyup.enter="sendMsg(dynamicIndex, typingText)">
               </div>
               <div class="mainBottomIcon-container">
                 <i class="fas fa-microphone"></i>

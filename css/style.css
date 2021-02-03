@@ -179,6 +179,13 @@ div[class^="mainBottomIcon"] > i {
   margin-bottom: 1px;
   cursor: pointer;
 }
+.sidebar-msgContact-box ul > li:active,
+.sidebar-msgContact-box ul > li:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.selected-contact {
+  background-color: rgba(255, 255, 255, 0.5);
+}
 /*++++++++main central msg balloon++++++*/
 
 .msgBalloon {
