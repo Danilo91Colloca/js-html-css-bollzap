@@ -116,12 +116,16 @@ new Vue({
     	}
     ],
     dynamicIndex : 0,
+
     typingText : '',
+
     search : '',
+
     activeMsg: {
       index: false,
       show: false
     },
+
     hoursDeleteMsg : ''
   },
   methods : {
@@ -148,16 +152,18 @@ new Vue({
       let length = newArray.length - 1;
       return newArray[length]
     },
+    //mostra solo l'ultimo messaggio nella sidebar dei contatti
     lastMsgPreview : function(i){
       const messages = this.contacts[i].messages;
       const msgLength = messages.length - 1;
       return messages[msgLength].text
     },
+    //estrae solo l'orario della stringa date in messages
     onlyHours : function(iMsg, iArray){
       const messages = this.contacts[iArray].messages[iMsg];
       return messages.date.slice(11, -3) && (this.hoursDeleteMsg = messages.date.slice(11, -3))
     },
-    sendMsg : function(newIndex, insertText){         //inserimento del messaggio dell'utente
+    sendMsg : function(newIndex, insertText){  //inserimento del messaggio dell'utente
       if (insertText !== "") {
         const msgArray = this.contacts[newIndex].messages;
         msgArray.push({
@@ -200,21 +206,20 @@ new Vue({
        let name = item.name.toLowerCase();
        if (name.startsWith(typingName)) {
          item.visible = true
-
        } else {
          item.visible = false
        }
       });
     },
-
-    //da risolvere
-    msgMenuVisible : function(idx){      
+    //mostra e nasconde i menu del messaggio
+    msgMenuVisible : function(idx, idxContact){      
       this.activeMsg.index = idx;
       this.activeMsg.show = !this.activeMsg.show;
+
       console.log(this.activeMsg.index);
       console.log(this.activeMsg.show);
     },
-
+    //cancella i msg e scrive msg di cancellazione
     deleteMsg : function(idx) {
       const indxArray = this.dynamicIndex;
       let msg = this.contacts[indxArray].messages;
@@ -226,6 +231,9 @@ new Vue({
       msg = msg.map((element, index) => {
         if( index === idx) {
           element.text = 'Hai eliminato questo messaggio ' + this.hoursDeleteMsg
+          //il click su delete msg chiude il menu
+          this.activeMsg.index = false;
+          this.activeMsg.show = false;
         }
       })
 

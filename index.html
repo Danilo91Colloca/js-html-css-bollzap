@@ -112,7 +112,7 @@
             <div class="main-central-box" >
               <div v-for="(message, index) in contacts[dynamicIndex].messages" :class="'msgBalloon clearfix ' + message.status">
                 {{message.text}}
-                <div class="button-msgMenu" @click="msgMenuVisible(index)">
+                <div class="button-msgMenu" @click="msgMenuVisible(index, dynamicIndex)">
                   <i class="fas fa-chevron-down"></i>
                 </div>
                 <!-- dropdown menu -->
