@@ -118,7 +118,10 @@ new Vue({
     dynamicIndex : 0,
     typingText : '',
     search : '',
-    activeMenu: 'no-activeMenu',
+    activeMsg: {
+      index: false,
+      show: false
+    },
     hoursDeleteMsg : ''
   },
   methods : {
@@ -204,14 +207,13 @@ new Vue({
       });
     },
 
-    //da risolvere
-    msgMenuVisible : function(idx){      
-      if (this.activeMenu === 'no-activeMenu') {
-        this.activeMenu = 'activeMenu'
-      } else {
-        this.activeMenu = 'no-activeMenu'
-      }
-    },
+    //da risolvere
+    msgMenuVisible : function(idx){      
+      this.activeMsg.index = idx;
+      this.activeMsg.show = !this.activeMsg.show;
+      console.log(this.activeMsg.index);
+      console.log(this.activeMsg.show);
+    },
 
     deleteMsg : function(idx) {
       const indxArray = this.dynamicIndex;

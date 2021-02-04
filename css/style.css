@@ -272,7 +272,6 @@ div[class^="mainBottomIcon"] > i {
   z-index: 200;
   right: 5px;
   top: 15px;
-  display: none;
 }
 .msg-menu li {
   padding: 15px;
