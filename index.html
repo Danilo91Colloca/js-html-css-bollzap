@@ -109,14 +109,14 @@
             </div>
             <!-- /main-TOP -->
             <!-- main-CENTRAL -->
-            <div class="main-central-box" >
+            <div class="main-central-box">
               <div v-for="(message, index) in contacts[dynamicIndex].messages" :class="'msgBalloon clearfix ' + message.status" >
                 {{message.text}}
                 <div class="button-msgMenu" @click="msgMenuVisible(index, dynamicIndex)">
                   <i class="fas fa-chevron-down"></i>
                 </div>
                 <!-- dropdown menu -->
-                <div class="msg-menu" v-if="activeMsg.show && activeMsg.index === index">
+                <div class="msg-menu" v-if="activeMsg.show && activeMsg.index === index"  @click="closeMenu()">
                   <ul>
                     <li>Message Info</li>
                     <li @click="deleteMsg(index)">Delete Message</li>

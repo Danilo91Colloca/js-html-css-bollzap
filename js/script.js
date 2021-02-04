@@ -235,9 +235,6 @@ new Vue({
       msg = msg.map((element, index) => {
         if( index === idx) {
           element.text = 'Hai eliminato questo messaggio ' + this.hoursDeleteMsg
-          //il click su delete msg chiude il menu
-          this.activeMsg.index = false;
-          this.activeMsg.show = false;
         }
       })
     }
