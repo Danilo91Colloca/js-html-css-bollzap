@@ -118,8 +118,8 @@ new Vue({
     dynamicIndex : 0,
     typingText : '',
     search : '',
-    activeMenu: 'no-active',
-    hours : ''
+    activeMenu: 'no-activeMenu',
+    hoursDeleteMsg : ''
   },
   methods : {
     extractContact : function(newIndex) { //popola dinamicamente "dynamicIndex"
@@ -152,7 +152,7 @@ new Vue({
     },
     onlyHours : function(iMsg, iArray){
       const messages = this.contacts[iArray].messages[iMsg];
-      return messages.date.slice(11, -3) && (this.hours = messages.date.slice(11, -3))
+      return messages.date.slice(11, -3) && (this.hoursDeleteMsg = messages.date.slice(11, -3))
     },
     sendMsg : function(newIndex, insertText){         //inserimento del messaggio dell'utente
       if (insertText !== "") {
@@ -205,24 +205,12 @@ new Vue({
     },
 
     //da risolvere
-    msgMenuVisible : function(idx){
-      const indxArray = this.dynamicIndex;
-      let msg = this.contacts[indxArray].messages;
-      if(msg[idx]) {
+    msgMenuVisible : function(idx){      
+      if (this.activeMenu === 'no-activeMenu') {
         this.activeMenu = 'activeMenu'
       } else {
         this.activeMenu = 'no-activeMenu'
-
       }
-
-
-
-      // if(this.imageIndex === newIndex){
-      //   return "fas fa-circle active"
-      // } else {
-      //   return "fas fa-circle"
-      // }
-
     },
 
     deleteMsg : function(idx) {
@@ -235,7 +223,7 @@ new Vue({
       let that=this; // questa riga cambia il contenuto del messaggio
       msg = msg.map((element, index) => {
         if( index === idx) {
-          element.text = 'Hai eliminato questo messaggio ' + this.hours
+          element.text = 'Hai eliminato questo messaggio ' + this.hoursDeleteMsg
         }
       })
 
