@@ -215,10 +215,14 @@ new Vue({
     msgMenuVisible : function(idx, idxContact){      
       this.activeMsg.index = idx;
       this.activeMsg.show = !this.activeMsg.show;
-
       console.log(this.activeMsg.index);
       console.log(this.activeMsg.show);
     },
+    closeMenu : function(){
+      this.activeMsg.index = false;
+      this.activeMsg.show = false;
+
+    },
     //cancella i msg e scrive msg di cancellazione
     deleteMsg : function(idx) {
       const indxArray = this.dynamicIndex;
@@ -236,8 +240,6 @@ new Vue({
           this.activeMsg.show = false;
         }
       })
-
-
     }
   }
 });

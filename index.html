@@ -24,21 +24,21 @@
           <!-- SIDE BAR SECTION-->
           <div class="sidebar-box">
 
-            <div class="sidebar-top flex">
+            <div class="sidebar-top flex" @click="closeMenu()">
               <div class="user-box-data left">
                 <img src="img/avatar_2.jpg" alt="">
                 <div class="name-data">
                   <span>Nome Utente</span>
                 </div>
               </div>
-              <div class="sidebar-iconBoxRight">
+              <div class="sidebar-iconBoxRight" @click="closeMenu()">
                 <i class="fas fa-circle-notch"></i>
                 <i class="fas fa-comment-alt"></i>
                 <i class="fas fa-ellipsis-v"></i>
               </div>
             </div>
 
-            <div class="sidebar-popup-box flex">
+            <div class="sidebar-popup-box flex" @click="closeMenu()">
               <div class="logo-popup-container">
                 <i class="fas fa-bell-slash"></i>
               </div>
@@ -50,14 +50,14 @@
               </div>
             </div>
 
-            <div class="sidebar-search-box flex">
+            <div class="sidebar-search-box flex" @click="closeMenu()">
               <div class="input-container flex">
                 <i class="fas fa-search"></i>
                 <input type="text" name="" value="" placeholder="Cerca o inizia nuova chat" v-model="search" @keyup="isSearch(search, contacts)">
               </div>
             </div>
 
-            <div class="sidebar-msgContact-box ">
+            <div class="sidebar-msgContact-box " @click="closeMenu()">
               <ul>
                 <li :class="'flex contact-item ' + changeColorSelected(index)" v-for="(element, index) in contacts"  @click="extractContact(index)" v-if="element.visible === true">
                   <div class="user-box-data ">
@@ -82,7 +82,7 @@
           <!-- MAIN SECTION-->
           <div class="main-box">
             <!-- main-TOP -->
-            <div class="main-top-box flex">
+            <div class="main-top-box flex"  @click="closeMenu()">
               <!-- contact chat box  -->
               <div class="user-box-data left">
 
@@ -110,7 +110,7 @@
             <!-- /main-TOP -->
             <!-- main-CENTRAL -->
             <div class="main-central-box" >
-              <div v-for="(message, index) in contacts[dynamicIndex].messages" :class="'msgBalloon clearfix ' + message.status">
+              <div v-for="(message, index) in contacts[dynamicIndex].messages" :class="'msgBalloon clearfix ' + message.status" >
                 {{message.text}}
                 <div class="button-msgMenu" @click="msgMenuVisible(index, dynamicIndex)">
                   <i class="fas fa-chevron-down"></i>
@@ -129,7 +129,7 @@
             </div>
             <!-- /main-CENTRAL -->
             <!-- main-BOTTOM -->
-            <div class="main-bottom-box flex">
+            <div class="main-bottom-box flex" @click="closeMenu()">
               <div class="mainBottomIcon-container">
                 <i class="far fa-smile"></i>
               </div>
