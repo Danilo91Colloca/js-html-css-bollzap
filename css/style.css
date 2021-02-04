@@ -280,7 +280,8 @@ div[class^="mainBottomIcon"] > i {
   color: rgb(145, 145, 145);
 }
 .msg-menu li:hover {
-  background-color: rgb(218,218,218)
+  background-color: rgb(218,218,218);
+  display:block;
 }
 
 .activeMenu {

@@ -118,7 +118,8 @@ new Vue({
     dynamicIndex : 0,
     typingText : '',
     search : '',
-    classActiveMenu:'no-active'
+    activeMenu: 'no-active',
+    hours : ''
   },
   methods : {
     extractContact : function(newIndex) { //popola dinamicamente "dynamicIndex"
@@ -151,7 +152,7 @@ new Vue({
     },
     onlyHours : function(iMsg, iArray){
       const messages = this.contacts[iArray].messages[iMsg];
-      return messages.date.slice(11, -3)
+      return messages.date.slice(11, -3) && (this.hours = messages.date.slice(11, -3))
     },
     sendMsg : function(newIndex, insertText){         //inserimento del messaggio dell'utente
       if (insertText !== "") {
@@ -202,16 +203,42 @@ new Vue({
        }
       });
     },
-    msgMenuVisible : function(iMsg, indexContact){
-      const messages = this.contacts[indexContact].messages;
-      const msg = messages.length - 1;
 
-      if (msg === iMsg) {
-        this.classActiveMenu = 'activeMenu';
+    //da risolvere
+    msgMenuVisible : function(idx){
+      const indxArray = this.dynamicIndex;
+      let msg = this.contacts[indxArray].messages;
+      if(msg[idx]) {
+        this.activeMenu = 'activeMenu'
+      } else {
+        this.activeMenu = 'no-activeMenu'
+
       }
-      if (msg !== iMsg) {
-        this.classActiveMenu = 'no-active';
-      }
+
+
+
+      // if(this.imageIndex === newIndex){
+      //   return "fas fa-circle active"
+      // } else {
+      //   return "fas fa-circle"
+      // }
+
+    },
+
+    deleteMsg : function(idx) {
+      const indxArray = this.dynamicIndex;
+      let msg = this.contacts[indxArray].messages;
+      //  //la riga sotto elimina totalmente il messaggio
+      // this.contacts[indxArray].messages = msg.filter((element, index) => {
+      //   return index !== idx
+      // })
+      let that=this; // questa riga cambia il contenuto del messaggio
+      msg = msg.map((element, index) => {
+        if( index === idx) {
+          element.text = 'Hai eliminato questo messaggio ' + this.hours
+        }
+      })
+
 
     }
   }
